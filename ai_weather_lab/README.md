@@ -6,7 +6,7 @@ ARCO-ERA5 store, so no accounts or data downloads are needed.
 
 | Notebook | Contents |
 |---|---|
-| [neuralgcm_lab.ipynb](neuralgcm_lab.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/evanwellmeyer/teaching/blob/main/ai_weather_lab/neuralgcm_lab.ipynb) | [NeuralGCM](https://neuralgcm.readthedocs.io), a hybrid model (dynamical core plus learned physics), at 2.8° or 1.4°. Parts: a 10-day forecast vs. ERA5; the butterfly effect (growth of 0.01 K temperature noise); a localized warm anomaly; an El Niño–like SST anomaly with small ensembles over 30 days; a student-designed experiment. |
+| [neuralgcm_lab.ipynb](neuralgcm_lab.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/evanwellmeyer/teaching/blob/main/ai_weather_lab/neuralgcm_lab.ipynb) | [NeuralGCM](https://neuralgcm.readthedocs.io), a hybrid model (dynamical core plus learned physics), at 2.8° or 1.4°. Parts: a 10-day forecast vs. ERA5; the butterfly effect (growth of 0.01 K temperature noise); a dynamical perturbation that each student injects on a start date of their choosing (a cyclonic or anticyclonic vortex built from a streamfunction, mid-tropospheric subsidence or ascent built from a velocity potential, a warm or cold anomaly, or drying, optionally with a geostrophically and hydrostatically balanced mass field), with maps, cross-sections, a linearity test and a chaos baseline; comparing results across the class; a student-designed experiment. |
 | [earth2studio_lab.ipynb](earth2studio_lab.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/evanwellmeyer/teaching/blob/main/ai_weather_lab/earth2studio_lab.ipynb) | Purely data-driven models through NVIDIA's [Earth2Studio](https://github.com/NVIDIA/earth2studio): Pangu-Weather (24 h and 6 h), FourCastNet and DLWP. Parts: a 10-day forecast vs. ERA5; the butterfly effect; a localized warm anomaly; the same experiments compared across models; a student-designed experiment. |
 
 Both notebooks need a GPU runtime (`Runtime → Change runtime type`).
@@ -20,10 +20,11 @@ Both notebooks need a GPU runtime (`Runtime → Change runtime type`).
   from 1940 to 2025 works.
 * Package versions: `neuralgcm` (latest; a pinned fallback line is in the install cell) and
   `earth2studio[pangu,fcn,dlwp]==0.19.0`.
-* **Not yet tested on Colab.** Things to check on a first run:
+* The notebooks have been run on Colab; the NeuralGCM Part 3 perturbation experiment is new and has only been
+  tested offline (its perturbation math and plots, with a stand-in for the model). Things to check:
   * the installs and imports (in the Earth2Studio notebook, a warning prints if ONNX Runtime cannot see the GPU,
     in which case Pangu runs on the CPU and is slow);
   * GPU memory on a free T4 (16 GB): FourCastNet and DLWP should fit; Pangu at 0.25° is the most likely to run
     out of memory;
-  * run times, especially NeuralGCM Part 4 (2 × 4 forecasts of 30 days), and the first NeuralGCM forecast, which
-    includes JAX compilation.
+  * run times: NeuralGCM Part 3 runs three 10-day forecasts with 6-hourly output (four with the optional
+    linearity test), and each new forecast length or output interval triggers one JAX compilation (~1 min).
