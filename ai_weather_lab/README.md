@@ -14,7 +14,7 @@ Both notebooks need a GPU runtime (`Runtime → Change runtime type`).
 ## For instructors
 
 * Setup and helper code is hidden behind `#@title` (Colab's form view). Students edit the cells with Colab form
-  fields (marked ✏️ in the Earth2Studio notebook). Each part ends with discussion questions; there are no answer keys. The
+  fields (marked ✏️ in the Earth2Studio notebook). Discussion questions follow the parts (in the NeuralGCM notebook, Parts 3 and 4); there are no answer keys. The
   notebooks are stored without outputs.
 * The default start date is 2021-02-08 00 UTC, just before the February 2021 Texas cold-air outbreak. Any date
   from 1940 to 2025 works.
