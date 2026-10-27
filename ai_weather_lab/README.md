@@ -6,15 +6,15 @@ ARCO-ERA5 store, so no accounts or data downloads are needed.
 
 | Notebook | Contents |
 |---|---|
-| [neuralgcm_lab.ipynb](neuralgcm_lab.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/evanwellmeyer/teaching/blob/main/ai_weather_lab/neuralgcm_lab.ipynb) | [NeuralGCM](https://neuralgcm.readthedocs.io), a hybrid model (dynamical core plus learned physics), at 2.8° or 1.4°. Parts: a 10-day forecast vs. ERA5; the butterfly effect (growth of 0.01 K temperature noise); a dynamical perturbation that each student injects on a start date of their choosing (a cyclonic or anticyclonic vortex built from a streamfunction, mid-tropospheric subsidence or ascent built from a velocity potential, a warm or cold anomaly, or drying, optionally with a geostrophically and hydrostatically balanced mass field), with maps, cross-sections, a linearity test and a chaos baseline; comparing results across the class; a student-designed experiment. |
+| [neuralgcm_lab.ipynb](neuralgcm_lab.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/evanwellmeyer/teaching/blob/main/ai_weather_lab/neuralgcm_lab.ipynb) | [NeuralGCM](https://neuralgcm.readthedocs.io), a hybrid model (dynamical core plus learned physics), at 2.8° or 1.4°. Parts: a 5-day forecast vs. ERA5; the butterfly effect (growth of 0.01 K temperature noise); a dynamical perturbation that each student injects on a start date of their choosing (a cyclonic or anticyclonic vortex built from a streamfunction, mid-tropospheric subsidence or ascent built from a velocity potential, a warm or cold anomaly, or drying, optionally with a geostrophically and hydrostatically balanced mass field), with maps, cross-sections, a linearity test and a chaos baseline; comparing results across the class; a student-designed experiment. |
 | [earth2studio_lab.ipynb](earth2studio_lab.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/evanwellmeyer/teaching/blob/main/ai_weather_lab/earth2studio_lab.ipynb) | Purely data-driven models through NVIDIA's [Earth2Studio](https://github.com/NVIDIA/earth2studio): Pangu-Weather (24 h and 6 h), FourCastNet and DLWP. Parts: a 10-day forecast vs. ERA5; the butterfly effect; a localized warm anomaly; the same experiments compared across models; a student-designed experiment. |
 
 Both notebooks need a GPU runtime (`Runtime → Change runtime type`).
 
 ## For instructors
 
-* Setup and helper code is hidden behind `#@title` (Colab's form view). Cells marked ✏️ are the ones students
-  edit, through Colab form fields. Each part ends with discussion questions; there are no answer keys. The
+* Setup and helper code is hidden behind `#@title` (Colab's form view). Students edit the cells with Colab form
+  fields (marked ✏️ in the Earth2Studio notebook). Each part ends with discussion questions; there are no answer keys. The
   notebooks are stored without outputs.
 * The default start date is 2021-02-08 00 UTC, just before the February 2021 Texas cold-air outbreak. Any date
   from 1940 to 2025 works.
